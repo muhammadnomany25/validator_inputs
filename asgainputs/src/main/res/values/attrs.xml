@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomInputField">
+        <attr name="errorColor" format="color" />
+        <attr name="hint" format="string" />
+        <attr name="errorText" format="string" />
+        <attr name="minLength" format="integer" />
+        <attr name="maxLength" format="integer" />
+        <attr name="hasDot" format="boolean" />
+        <attr name="hasUnderScore" format="boolean" />
+        <attr name="hasSpecialCharacter" format="boolean" />
+        <attr name="hasNumbers" format="boolean" />
+        <attr name="hasCapitalLetters" format="boolean" />
+
+        <attr name="fieldType" format="enum">
+            <enum name="username" value="0" />
+            <enum name="password" value="1" />
+            <enum name="email" value="2" />
+            <enum name="egyPhone" value="3" />
+            <enum name="ksaPhone" value="4" />
+            <enum name="ksaNationalId" value="5" />
+            <enum name="egyNationalId" value="6" />
+            <enum name="visaCard" value="7" />
+            <enum name="masterCard" value="8" />
+            <enum name="amexCard" value="9" />
+            <enum name="cvv" value="10" />
+            <enum name="ipAddress" value="11" />
+        </attr>
+
+    </declare-styleable>
+</resources>

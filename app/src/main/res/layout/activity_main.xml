@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid username"
+                app:fieldType="username"
+                app:hasCapitalLetters="true"
+                app:hasNumbers="true"
+                app:hint="Username " />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid password"
+                app:fieldType="password"
+                app:hasCapitalLetters="true"
+                app:hint="Password" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid email address"
+                app:fieldType="email"
+                app:hint="Email" />
+
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid egyptian phone"
+                app:fieldType="egyPhone"
+                app:hint="Egyptian phone" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid egyptian national id"
+                app:fieldType="egyNationalId"
+                app:hint="Egyptian national id" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid ksa phone"
+                app:fieldType="ksaPhone"
+                app:hint="Ksa Phone" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid ksa national id"
+                app:fieldType="ksaNationalId"
+                app:hint="Ksa National Id" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid visa card number"
+                app:fieldType="visaCard"
+                app:hint="visa card number" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid master card number"
+                app:fieldType="masterCard"
+                app:hint="master card number" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid amex card number"
+                app:fieldType="amexCard"
+                app:hint="amex card number" />
+
+            <com.asgatech.asgainputs.CustomInputField
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:errorText="please enter valid card cvv number"
+                app:fieldType="cvv"
+                app:hint="card cvv" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
