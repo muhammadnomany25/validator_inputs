@@ -73,7 +73,8 @@ class CustomInputField : TextInputLayout {
         inputHint =
             typedAttributeSet.getString(R.styleable.CustomInputField_hint) ?: ""
         errorText =
-            typedAttributeSet.getString(R.styleable.CustomInputField_errorText) ?: "Please enter valid field data"
+            typedAttributeSet.getString(R.styleable.CustomInputField_errorText)
+                ?: "Please enter valid field data"
         inputFieldType =
             typedAttributeSet.getInt(R.styleable.CustomInputField_fieldType, -1)
         errorColor =
@@ -135,14 +136,7 @@ class CustomInputField : TextInputLayout {
             isPasswordFieldType() -> inputEditText.inputType =
                 InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             // Check for the number input field
-            InputTypes.VISA.value,
-            InputTypes.MASTER_CARD.value,
-            InputTypes.AMEX.value,
-            InputTypes.CVV.value,
-            InputTypes.KSA_NATIONAL_ID.value,
-            InputTypes.EGY_NATIONAL_ID.value,
-            InputTypes.KSA_PHONE.value,
-            InputTypes.EGY_PHONE.value -> inputEditText.inputType =
+            isNumber(inputFieldType) -> inputEditText.inputType =
                 InputType.TYPE_CLASS_TEXT or InputType.TYPE_CLASS_NUMBER
             // ip address input field
             isWebFieldType() -> inputEditText.inputType =
@@ -150,6 +144,23 @@ class CustomInputField : TextInputLayout {
             // default input field (text)
             else -> inputEditText.inputType =
                 InputType.TYPE_CLASS_TEXT
+        }
+    }
+
+    /**
+     * check if field should be number input
+     */
+    private fun isNumber(inputTypes: Int): Int {
+        return when (inputTypes) {
+            InputTypes.VISA.value -> InputTypes.VISA.value
+            InputTypes.MASTER_CARD.value -> InputTypes.MASTER_CARD.value
+            InputTypes.AMEX.value -> InputTypes.AMEX.value
+            InputTypes.CVV.value -> InputTypes.CVV.value
+            InputTypes.KSA_NATIONAL_ID.value -> InputTypes.KSA_NATIONAL_ID.value
+            InputTypes.EGY_NATIONAL_ID.value -> InputTypes.EGY_NATIONAL_ID.value
+            InputTypes.KSA_PHONE.value -> InputTypes.KSA_PHONE.value
+            InputTypes.EGY_PHONE.value -> InputTypes.EGY_PHONE.value
+            else -> -1
         }
     }
 
