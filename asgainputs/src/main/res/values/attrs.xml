@@ -6,11 +6,31 @@
         <attr name="errorText" format="string" />
         <attr name="minLength" format="integer" />
         <attr name="maxLength" format="integer" />
-        <attr name="hasDot" format="boolean" />
-        <attr name="hasUnderScore" format="boolean" />
-        <attr name="hasSpecialCharacter" format="boolean" />
-        <attr name="hasNumbers" format="boolean" />
-        <attr name="hasCapitalLetters" format="boolean" />
+        <attr name="hasDot" format="enum" >
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
+        </attr>
+        <attr name="hasUnderScore" format="enum" >
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
+        </attr>
+        <attr name="hasSpecialCharacter" format="enum" >
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
+        </attr>
+        <attr name="hasNumbers" format="enum" >
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
+        </attr>
+        <attr name="hasCapitalLetters" format="enum" >
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
+        </attr>
 
         <attr name="fieldType" format="enum">
             <enum name="username" value="0" />

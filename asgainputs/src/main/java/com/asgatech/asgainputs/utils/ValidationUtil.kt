@@ -2,6 +2,7 @@ package com.asgatech.asgainputs.utils
 
 
 import android.util.Patterns
+import java.util.regex.Pattern
 
 /**
  * @Author: Ahmed Saber
@@ -10,25 +11,30 @@ import android.util.Patterns
  */
 object ValidationUtil {
     /**@usage:  validate entered username based on passed parameters.
-     * @param userName A String containing the user's name
+     * @param userName A String containing the username
      * @param minLength An Integer value to determine username minimum length
      * @param maxLength An Integer value to determine username maximum length
-     * @param hasDot A Boolean value to determine if username has at least one dot or not
-     * @param hasUnderScore A Boolean value to determine if username has at least one underscore or not
-     * @param hasSpecialCharacter A Boolean value to determine if username has at least special character from these [-+!@#$%^&*,?] or not
-     * @param haveNumbers A Boolean value to determine if username has at least one number in range 0-9 or not
-     * @param hasCapitalLetters A Boolean value to determine if username has at least one capital letter or not
+     * @param hasDotMandatory A Boolean value to determine if username has at least one dot or not
+     * @param hasDotOptional A Boolean value to determine if username may  have one dot  or more or not
+     * @param hasUnderScoreOptional A Boolean value to determine if username may  have one underscore  or more or not
+     * @param hasUnderScoreMandatory A Boolean value to determine if username has at least one underscore or not
+     * @param hasSpecialCharacterMandatory A Boolean value to determine if username has at least special character from these [-+!@#$%^&*,?] or not
+     * @param hasSpecialCharacterOptional A Boolean value to determine if username may  have special character from these [-+!@#$%^&*,?] or more or not
+     * @param haveNumbersMandatory A Boolean value to determine if username has at least one number in range 0-9 or not
+     * @param haveNumbersOptional A Boolean value to determine if username may  have one number in range 0-9 or or more or not
+     * @param hasCapitalLettersMandatory A Boolean value to determine if username has at least one capital letter or not
+     * @param hasCapitalLettersOptional A Boolean value to determine if username may  have  one capital letter or more or not
      * @return A Boolean value that is determined on given parameters
      */
     fun isValidUserName(
         userName: String,
         minLength: Int,
         maxLength: Int,
-        hasDot: Boolean,
-        hasUnderScore: Boolean,
-        hasSpecialCharacter: Boolean,
-        haveNumbers: Boolean,
-        hasCapitalLetters: Boolean
+        hasDot:Int = RegexAdditionType.NON.value,
+        hasUnderScore:Int = RegexAdditionType.NON.value,
+        hasSpecialCharacter:Int = RegexAdditionType.NON.value,
+        hasNumbers:Int = RegexAdditionType.NON.value,
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): Boolean {
         return isValidInput(
             userName,
@@ -37,31 +43,36 @@ object ValidationUtil {
             hasDot,
             hasUnderScore,
             hasSpecialCharacter,
-            haveNumbers,
+            hasNumbers,
             hasCapitalLetters
         )
     }
 
     /**@usage: validate entered user password based on passed parameters.
-     * @param userPassword A String containing the user's password
+     * @param userPassword A String containing the user's name
      * @param minLength An Integer value to determine user password minimum length
-     * @param maxLength An Integer value to determine user password maximum length
-     * @param hasDot A Boolean value to determine if user password has at least one dot or not
-     * @param hasUnderScore A Boolean value to determine if user password has at least one underscore or not
-     * @param hasSpecialCharacter A Boolean value to determine if user password has at least special character from these [-+!@#$%^&*,?] or not
-     * @param haveNumbers A Boolean value to determine if user password has at least one number in range 0-9 or not
-     * @param hasCapitalLetters A Boolean value to determine if user password has at least one capital letter or not
+     * @param maxLength An Integer value to determine user password  maximum length
+     * @param hasDotMandatory A Boolean value to determine if user password  has at least one dot or not
+     * @param hasDotOptional A Boolean value to determine if user password  may  have one dot  or more or not
+     * @param hasUnderScoreOptional A Boolean value to determine if user password  may  have one underscore  or more or not
+     * @param hasUnderScoreMandatory A Boolean value to determine if user password  has at least one underscore or not
+     * @param hasSpecialCharacterMandatory A Boolean value to determine if user password  has at least special character from these [-+!@#$%^&*,?] or not
+     * @param hasSpecialCharacterOptional A Boolean value to determine if user password  may  have special character from these [-+!@#$%^&*,?] or more or not
+     * @param haveNumbersMandatory A Boolean value to determine if user password  has at least one number in range 0-9 or not
+     * @param haveNumbersOptional A Boolean value to determine if user password  may  have one number in range 0-9 or or more or not
+     * @param hasCapitalLettersMandatory A Boolean value to determine if user password  has at least one capital letter or not
+     * @param hasCapitalLettersOptional A Boolean value to determine if user password  may  have  one capital letter or more or not
      * @return A Boolean value that is determined on given parameters
      */
     fun isValidUserPassword(
         userPassword: String,
         minLength: Int,
         maxLength: Int,
-        hasDot: Boolean,
-        hasUnderScore: Boolean,
-        hasSpecialCharacter: Boolean,
-        haveNumbers: Boolean,
-        hasCapitalLetters: Boolean
+        hasDot: Int = RegexAdditionType.NON.value,
+        hasUnderScore:Int = RegexAdditionType.NON.value,
+        hasSpecialCharacter:Int = RegexAdditionType.NON.value,
+        hasNumbers:Int = RegexAdditionType.NON.value,
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): Boolean {
         return isValidInput(
             userPassword,
@@ -70,31 +81,36 @@ object ValidationUtil {
             hasDot,
             hasUnderScore,
             hasSpecialCharacter,
-            haveNumbers,
+            hasNumbers,
             hasCapitalLetters
         )
     }
 
     /**@usage: validate entered input String based on passed parameters.
      * @param inputString A String to validate based on values of given parameters
-     * @param minLength An Integer value to determine input String minimum length
-     * @param maxLength An Integer value to determine input String maximum length
-     * @param hasDot A Boolean value to determine if input String has at least one dot or not
-     * @param hasUnderScore A Boolean value to determine if input String has at least one underscore or not
-     * @param hasSpecialCharacter A Boolean value to determine if input String has at least special character from these [-+!@#$%^&*,?] or not
-     * @param haveNumbers A Boolean value to determine if input String has at least one number in range 0-9 or not
-     * @param hasCapitalLetters A Boolean value to determine if input String has at least one capital letter or not
+     * @param minLength An Integer value to determine input string minimum length
+     * @param maxLength An Integer value to determine input string maximum length
+     * @param hasDotMandatory A Boolean value to determine if input string has at least one dot or not
+     * @param hasDotOptional A Boolean value to determine if input string may  have one dot  or more or not
+     * @param hasUnderScoreOptional A Boolean value to determine if input string may  have one underscore  or more or not
+     * @param hasUnderScoreMandatory A Boolean value to determine if input string has at least one underscore or not
+     * @param hasSpecialCharacterMandatory A Boolean value to determine if input string has at least special character from these [-+!@#$%^&*,?] or not
+     * @param hasSpecialCharacterOptional A Boolean value to determine if input string may  have special character from these [-+!@#$%^&*,?] or more or not
+     * @param haveNumbersMandatory A Boolean value to determine if input string  has at least one number in range 0-9 or not
+     * @param haveNumbersOptional A Boolean value to determine if input string may  have one number in range 0-9 or or more or not
+     * @param hasCapitalLettersMandatory A Boolean value to determine if input string  has at least one capital letter or not
+     * @param hasCapitalLettersOptional A Boolean value to determine if input string may  have  one capital letter or more or not
      * @return A Boolean value that is determined on given parameters
      */
     private fun isValidInput(
         inputString: String,
         minLength: Int,
         maxLength: Int,
-        hasDot: Boolean,
-        hasUnderScore: Boolean,
-        hasSpecialCharacter: Boolean,
-        haveNumbers: Boolean,
-        hasCapitalLetters: Boolean
+        hasDot:Int = RegexAdditionType.NON.value,
+        hasUnderScore:Int = RegexAdditionType.NON.value,
+        hasSpecialCharacter:Int = RegexAdditionType.NON.value,
+        hasNumbers:Int = RegexAdditionType.NON.value,
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): Boolean {
         var regexStringBuilder = getInputRegexString(
             minLength,
@@ -102,49 +118,120 @@ object ValidationUtil {
             hasDot,
             hasUnderScore,
             hasSpecialCharacter,
-            haveNumbers,
+            hasNumbers,
             hasCapitalLetters
         )
+     //   println(regexStringBuilder)
         var validationRegex = Regex(regexStringBuilder)
         return inputString.matches(validationRegex)
     }
 
     /**@usage: build required regex based on passed parameters.
      * @param minLength An Integer value to determine regex minimum length
-     * @param maxLength An Integer value to determine regex maximum length
-     * @param hasDot A Boolean value to determine if regex has at least one dot or not
-     * @param hasUnderScore A Boolean value to determine if regex has at least one underscore or not
-     * @param hasSpecialCharacter A Boolean value to determine if regex has at least special character from these [-+!@#$%^&*,?] or not
-     * @param haveNumbers A Boolean value to determine if regex has at least one number in range 0-9 or not
-     * @param hasCapitalLetters A Boolean value to determine if regex has at least one capital letter or not
+     * @param maxLength An Integer value to determine regexmaximum length
+     * @param hasDotMandatory A Boolean value to determine if regex has at least one dot or not
+     * @param hasDotOptional A Boolean value to determine if regex may  have one dot  or more or not
+     * @param hasUnderScoreOptional A Boolean value to determine if regex may  have one underscore  or more or not
+     * @param hasUnderScoreMandatory A Boolean value to determine if regex has at least one underscore or not
+     * @param hasSpecialCharacterMandatory A Boolean value to determine if regex  has at least special character from these [-+!@#$%^&*,?] or not
+     * @param hasSpecialCharacterOptional A Boolean value to determine if  regex may  have special character from these [-+!@#$%^&*,?] or more or not
+     * @param haveNumbersMandatory A Boolean value to determine if regex  has at least one number in range 0-9 or not
+     * @param haveNumbersOptional A Boolean value to determine if regex  may  have one number in range 0-9 or or more or not
+     * @param hasCapitalLettersMandatory A Boolean value to determine if regex   has at least one capital letter or not
+     * @param hasCapitalLettersOptional A Boolean value to determine if regex  may  have  one capital letter or more or not
      * @return A String generated based on given parameters
      */
     private fun getInputRegexString(
         minLength: Int,
         maxLength: Int,
-        hasDot: Boolean,
-        hasUnderScore: Boolean,
-        hasSpecialCharacter: Boolean,
-        haveNumbers: Boolean,
-        hasCapitalLetters: Boolean
+        hasDot:Int = RegexAdditionType.NON.value,
+        hasUnderScore:Int = RegexAdditionType.NON.value,
+        hasSpecialCharacter:Int = RegexAdditionType.NON.value,
+        hasNumbers:Int = RegexAdditionType.NON.value,
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): String {
-        var enableCapital = "!"
-        var enableDot = "!"
-        var enableUnderScore = "!"
-        var enableSpecialChar = "!"
-        var enableNumbers = "!"
-        if (hasCapitalLetters)
-            enableCapital = "="
-        if (hasDot)
-            enableDot = "="
-        if (hasUnderScore)
-            enableUnderScore = "="
-        if (hasSpecialCharacter)
-            enableSpecialChar = "="
-        if (haveNumbers)
-            enableNumbers = "="
-
-        return "^(?=.*[a-z])(?${enableCapital}.*[A-Z])(?${enableNumbers}.*\\d)(?${enableDot}.*[.])(?${enableUnderScore}.*[_])(?${enableSpecialChar}.*[-+!@#\$%^&*,?]).{${minLength},${maxLength}}$"
+        var enableCapitalMandatory = "?!"
+        var enableCapitalOptional = ""
+        when(hasCapitalLetters){
+            RegexAdditionType.OPTIONAL.value ->{
+                enableCapitalMandatory = ""
+                enableCapitalOptional = "*?"
+            }
+            RegexAdditionType.MANDATORY.value ->{
+                enableCapitalMandatory = "?="
+                enableCapitalOptional = ""
+            }
+            RegexAdditionType.NON.value ->{
+                enableCapitalMandatory = "?!"
+                enableCapitalOptional = ""
+            }
+        }
+        var enableDotMandatory = "?!"
+        var enableDotOptional=""
+        when(hasDot){
+            RegexAdditionType.OPTIONAL .value->{
+                enableDotMandatory = ""
+                enableDotOptional = "*?"
+            }
+            RegexAdditionType.MANDATORY.value ->{
+                enableDotMandatory = "?="
+                enableDotOptional = ""
+            }
+            RegexAdditionType.NON.value ->{
+                enableDotMandatory = "?!"
+                enableDotOptional = ""
+            }
+        }
+        var enableUnderScoreMandatory = "?!"
+        var enableUnderScoreOptional=""
+        when(hasUnderScore){
+            RegexAdditionType.OPTIONAL.value ->{
+                enableUnderScoreMandatory = ""
+                enableUnderScoreOptional = "*?"
+            }
+            RegexAdditionType.MANDATORY.value ->{
+                enableUnderScoreMandatory = "?="
+                enableUnderScoreOptional = ""
+            }
+            RegexAdditionType.NON.value ->{
+                enableUnderScoreMandatory = "?!"
+                enableUnderScoreOptional = ""
+            }
+        }
+        var enableSpecialCharMandatory = "?!"
+        var enableSpecialCharOptional = ""
+        when(hasSpecialCharacter){
+            RegexAdditionType.OPTIONAL.value ->{
+                enableSpecialCharMandatory = ""
+                enableSpecialCharOptional = "*?"
+            }
+            RegexAdditionType.MANDATORY.value ->{
+                enableSpecialCharMandatory = "?="
+                enableSpecialCharOptional = ""
+            }
+            RegexAdditionType.NON .value->{
+                enableSpecialCharMandatory = "?!"
+                enableSpecialCharOptional = ""
+            }
+        }
+        var enableNumbersMandatory = "?!"
+        var enableNumbersOptional = ""
+        when(hasNumbers){
+            RegexAdditionType.OPTIONAL.value ->{
+                enableNumbersMandatory = ""
+                enableNumbersOptional = "*?"
+            }
+            RegexAdditionType.MANDATORY.value ->{
+                enableNumbersMandatory = "?="
+                enableNumbersOptional = ""
+            }
+            RegexAdditionType.NON.value ->{
+                enableNumbersMandatory = "?!"
+                enableNumbersOptional = ""
+            }
+        }
+        return "^(?=.*[a-z])(${enableCapitalMandatory}.*[A-Z]${enableCapitalOptional})(${enableNumbersMandatory}.*\\d${enableNumbersOptional})" +
+                "(${enableDotMandatory}.*[.]${enableDotOptional})(${enableUnderScoreMandatory}.*[_]${enableUnderScoreOptional})(${enableSpecialCharMandatory}.*[-+!@#\$%^&*,?]${enableSpecialCharOptional}).{${minLength},${maxLength}}$"
     }
 
     /**@usage: validate entered user email based on email address pattern imported from android.util.Patterns package.
@@ -154,8 +241,17 @@ object ValidationUtil {
     fun isValidUserEmail(
         userEmail: String
     ): Boolean {
-        val emailPattern = Patterns.EMAIL_ADDRESS
-        return emailPattern.matcher(userEmail).matches()
+        val EMAIL_ADDRESS = Pattern.compile(
+            "[a-zA-Z0-9\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+        )
+        //Patterns.EMAIL_ADDRESS
+        return EMAIL_ADDRESS.matcher(userEmail).matches()
     }
 
     /**@usage: validate entered Ksa phone number based on used regex.
@@ -182,7 +278,7 @@ object ValidationUtil {
      */
     fun isValidIpAddress(ipAddress: String): Boolean {
         var ipAddressRegex =
-            Regex("^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9]{1,2})(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[0-9]{1,2})){3}$")//simple one :: "^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$"
+            Regex("^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
         return ipAddress.matches(ipAddressRegex)
     }
 
@@ -234,9 +330,9 @@ object ValidationUtil {
      * @return A CreditCardType [VISA,MASTER,AMEX,NOT_VALID]
      */
     fun getCreditCardType(creditCardNumber: String): CreditCardType {
-        val visaRegex = Regex("^4[0-9]{12}(?:[0-9]{3})?\$")
-        val masterRegex = Regex("^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})\$")
-        val amexRegex = Regex("^3[47][0-9]{13}\$")
+        val visaRegex = Regex("^4\\d{3}(| |-)(?:\\d{4}\\1){2}\\d{4}\$")
+        val masterRegex = Regex("^5[1-5]\\d{2}(| |-)(?:\\d{4}\\1){2}\\d{4}\$")
+        val amexRegex = Regex("^3[47]\\d{1,2}(| |-)\\d{6}\\1\\d{6}\$")
         return when {
             creditCardNumber.matches(visaRegex) -> CreditCardType.VISA
             creditCardNumber.matches(masterRegex) -> CreditCardType.MASTER
@@ -299,7 +395,6 @@ object ValidationUtil {
             fun from(findValue: Int): IdType = IdType.values().first { it.value == findValue }
         }
     }
-
     /**
      * @usage: this enum class identifies different types of credit card
      */
@@ -311,22 +406,15 @@ object ValidationUtil {
                 CreditCardType.values().first { it.value == findValue }
         }
     }
-}
+    /**
+     * @usage: this enum class identifies different types of regex
+     */
+    enum class RegexAdditionType(val value: Int) {
+        MANDATORY(1), OPTIONAL(2), NON(-1);
 
-fun main() {
-    println(ValidationUtil.isValidUserName("Ahd._@8", 5, 7, true, true, true, true, true))
-    println(ValidationUtil.isValidKsaPhoneNumber("+966544949955"))
-    println(ValidationUtil.isValidEgPhoneNumber("01520713678"))
-    println(ValidationUtil.isValidIpAddress("192.168.1.1"))
-    println(ValidationUtil.isValidEgyptianNationalId("293050232190031"))
-    println(ValidationUtil.isValidCvvNumber("531"))
-    println(ValidationUtil.isVisa("4111111111111111"))
-    println(ValidationUtil.isMaster("5105105105105100"))
-    println(ValidationUtil.isAmex("371449635398431"))
-    println(ValidationUtil.getKsaNationalIdType("1635788548"))
-    println(ValidationUtil.getKsaNationalIdType("2827927043"))
-    println(ValidationUtil.getKsaNationalIdType("293050232190031"))
-    println(ValidationUtil.isKsaCitizen("1635788548"))
-    println(ValidationUtil.isKsaResident("2827927043"))
-    println(ValidationUtil.isKsaResident("293050232190031"))
-}
+        companion object {
+            fun from(findValue: Int): RegexAdditionType =
+                RegexAdditionType.values().first { it.value == findValue }
+        }
+    }
+    }
