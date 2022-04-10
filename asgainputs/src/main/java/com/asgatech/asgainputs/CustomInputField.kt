@@ -25,11 +25,11 @@ class CustomInputField : TextInputLayout {
     private var inputFieldType: Int = -1
     private var minLength: Int = 1
     private var maxLength: Int = 100
-    private var hasDot: Boolean = false
-    private var hasUnderScore: Boolean = false
-    private var hasSpecialCharacter: Boolean = false
-    private var hasNumbers: Boolean = false
-    private var hasCapitalLetters: Boolean = false
+    private var hasDot: Int = -1
+    private var hasUnderScore: Int = -1
+    private var hasSpecialCharacter: Int = -1
+    private var hasNumbers: Int = -1
+    private var hasCapitalLetters:Int = -1
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
@@ -85,15 +85,15 @@ class CustomInputField : TextInputLayout {
         minLength =
             typedAttributeSet.getInt(R.styleable.CustomInputField_minLength, 1)
         hasDot =
-            typedAttributeSet.getBoolean(R.styleable.CustomInputField_hasDot, false)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_hasDot, -1)
         hasUnderScore =
-            typedAttributeSet.getBoolean(R.styleable.CustomInputField_hasUnderScore, false)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_hasUnderScore, -1)
         hasSpecialCharacter =
-            typedAttributeSet.getBoolean(R.styleable.CustomInputField_hasSpecialCharacter, false)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_hasSpecialCharacter, -1)
         hasNumbers =
-            typedAttributeSet.getBoolean(R.styleable.CustomInputField_hasNumbers, false)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_hasNumbers, -1)
         hasCapitalLetters =
-            typedAttributeSet.getBoolean(R.styleable.CustomInputField_hasCapitalLetters, false)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_hasCapitalLetters, -1)
     }
 
     /**
