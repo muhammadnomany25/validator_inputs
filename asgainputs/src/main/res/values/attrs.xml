@@ -6,11 +6,39 @@
         <attr name="errorText" format="string" />
         <attr name="minLength" format="integer" />
         <attr name="maxLength" format="integer" />
-        <attr name="hasDot" format="boolean" />
-        <attr name="hasUnderScore" format="boolean" />
-        <attr name="hasSpecialCharacter" format="boolean" />
-        <attr name="hasNumbers" format="boolean" />
-        <attr name="hasCapitalLetters" format="boolean" />
+
+        <attr name="includeDot" format="enum">
+            <enum name="non" value="-1" />
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+        </attr>
+
+        <attr name="includeUnderScore" format="enum">
+            <enum name="non" value="-1" />
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+        </attr>
+
+        <attr name="includeSpecialCharacter" format="enum">
+            <enum name="non" value="-1" />
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+        </attr>
+        <attr name="includeNumbers" format="enum">
+            <enum name="non" value="-1" />
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+        </attr>
+        <attr name="includeCapitalLetters" format="enum">
+            <enum name="non" value="-1" />
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+        </attr>
+        <attr name="includeSmallLetters" format="enum">
+            <enum name="non" value="-1" />
+            <enum name="mandatory" value="1" />
+            <enum name="optional" value="2" />
+        </attr>
 
         <attr name="fieldType" format="enum">
             <enum name="username" value="0" />
