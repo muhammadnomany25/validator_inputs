@@ -36,7 +36,7 @@
                 app:errorText="please enter valid password"
                 app:fieldType="password"
                 app:hasCapitalLetters="1"
-                app:hint="Password" />
+                app:hint="Password"/>
 
             <com.asgatech.asgainputs.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
