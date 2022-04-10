@@ -85,15 +85,15 @@ class CustomInputField : TextInputLayout {
         minLength =
             typedAttributeSet.getInt(R.styleable.CustomInputField_minLength, 1)
         hasDot =
-            typedAttributeSet.getInt(R.styleable.CustomInputField_hasDot, -1)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_includeDot, -1)
         hasUnderScore =
-            typedAttributeSet.getInt(R.styleable.CustomInputField_hasUnderScore, -1)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_includeUnderScore, -1)
         hasSpecialCharacter =
-            typedAttributeSet.getInt(R.styleable.CustomInputField_hasSpecialCharacter, -1)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_includeSpecialCharacter, -1)
         hasNumbers =
-            typedAttributeSet.getInt(R.styleable.CustomInputField_hasNumbers, -1)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_includeNumbers, -1)
         hasCapitalLetters =
-            typedAttributeSet.getInt(R.styleable.CustomInputField_hasCapitalLetters, -1)
+            typedAttributeSet.getInt(R.styleable.CustomInputField_includeCapitalLetters, -1)
     }
 
     /**
@@ -280,6 +280,17 @@ class CustomInputField : TextInputLayout {
         companion object {
             fun from(findValue: Int): InputTypes =
                 values().first { it.value == findValue }
+        }
+    }
+    /**
+     * @usage: this enum class identifies different types of regex
+     */
+    enum class RegexAdditionType(val value: Int) {
+        MANDATORY(1), OPTIONAL(2), NON(-1);
+
+        companion object {
+            fun from(findValue: Int): RegexAdditionType =
+                RegexAdditionType.values().first { it.value == findValue }
         }
     }
 

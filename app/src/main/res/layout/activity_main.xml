@@ -25,8 +25,8 @@
                 android:layout_margin="16dp"
                 app:errorText="please enter valid username"
                 app:fieldType="username"
-                app:hasNumbers="1"
-                app:hint="Username " />
+                app:includeNumbers="mandatory"
+                app:hint="Username" />
 
             <com.asgatech.asgainputs.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -35,7 +35,7 @@
                 android:layout_margin="16dp"
                 app:errorText="please enter valid password"
                 app:fieldType="password"
-                app:hasCapitalLetters="1"
+                app:includeDot="mandatory"
                 app:hint="Password"/>
 
             <com.asgatech.asgainputs.CustomInputField
