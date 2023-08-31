@@ -6,38 +6,30 @@
         <attr name="errorText" format="string" />
         <attr name="minLength" format="integer" />
         <attr name="maxLength" format="integer" />
-
-        <attr name="includeDot" format="enum">
-            <enum name="non" value="-1" />
+        <attr name="hasDot" format="enum" >
             <enum name="mandatory" value="1" />
             <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
         </attr>
-
-        <attr name="includeUnderScore" format="enum">
-            <enum name="non" value="-1" />
+        <attr name="hasUnderScore" format="enum" >
             <enum name="mandatory" value="1" />
             <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
         </attr>
-
-        <attr name="includeSpecialCharacter" format="enum">
-            <enum name="non" value="-1" />
+        <attr name="hasSpecialCharacter" format="enum" >
             <enum name="mandatory" value="1" />
             <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
         </attr>
-        <attr name="includeNumbers" format="enum">
-            <enum name="non" value="-1" />
+        <attr name="hasNumbers" format="enum" >
             <enum name="mandatory" value="1" />
             <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
         </attr>
-        <attr name="includeCapitalLetters" format="enum">
-            <enum name="non" value="-1" />
+        <attr name="hasCapitalLetters" format="enum" >
             <enum name="mandatory" value="1" />
             <enum name="optional" value="2" />
-        </attr>
-        <attr name="includeSmallLetters" format="enum">
-            <enum name="non" value="-1" />
-            <enum name="mandatory" value="1" />
-            <enum name="optional" value="2" />
+            <enum name="none" value="-1" />
         </attr>
 
         <attr name="fieldType" format="enum">

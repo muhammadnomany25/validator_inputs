@@ -2,6 +2,14 @@ package com.asgatech.asgainputs.utils
 
 import java.util.regex.Pattern
 
+import android.util.Patterns
+
+/**
+ * @Author: Ahmed Saber
+ * @Date: 12/9/2021
+ * @Date: ahmedasga2593@gmail.com
+ */
+
 object ValidationUtil {
     /**@usage:  validate entered username based on passed parameters.
      * @param userName A String containing the username
@@ -27,9 +35,7 @@ object ValidationUtil {
         hasUnderScore:Int = RegexAdditionType.NON.value,
         hasSpecialCharacter:Int = RegexAdditionType.NON.value,
         hasNumbers:Int = RegexAdditionType.NON.value,
-        hasCapitalLetters:Int = RegexAdditionType.NON.value,
-        hasSmallLetters:Int = RegexAdditionType.NON.value
-
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): Boolean {
         return isValidInput(
             userName,
@@ -39,8 +45,7 @@ object ValidationUtil {
             hasUnderScore,
             hasSpecialCharacter,
             hasNumbers,
-            hasCapitalLetters,
-            hasSmallLetters
+            hasCapitalLetters
         )
     }
 
@@ -68,9 +73,7 @@ object ValidationUtil {
         hasUnderScore:Int = RegexAdditionType.NON.value,
         hasSpecialCharacter:Int = RegexAdditionType.NON.value,
         hasNumbers:Int = RegexAdditionType.NON.value,
-        hasCapitalLetters:Int = RegexAdditionType.NON.value,
-        hasSmallLetters:Int = RegexAdditionType.NON.value
-
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): Boolean {
         return isValidInput(
             userPassword,
@@ -80,8 +83,7 @@ object ValidationUtil {
             hasUnderScore,
             hasSpecialCharacter,
             hasNumbers,
-            hasCapitalLetters,
-            hasSmallLetters
+            hasCapitalLetters
         )
     }
 
@@ -109,8 +111,7 @@ object ValidationUtil {
         hasUnderScore:Int = RegexAdditionType.NON.value,
         hasSpecialCharacter:Int = RegexAdditionType.NON.value,
         hasNumbers:Int = RegexAdditionType.NON.value,
-        hasCapitalLetters:Int = RegexAdditionType.NON.value,
-        hasSmallLetters:Int = RegexAdditionType.NON.value
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): Boolean {
         var regexStringBuilder = getInputRegexString(
             minLength,
@@ -119,10 +120,8 @@ object ValidationUtil {
             hasUnderScore,
             hasSpecialCharacter,
             hasNumbers,
-            hasCapitalLetters,
-            hasSmallLetters
+            hasCapitalLetters
         )
-        //   println(regexStringBuilder)
         var validationRegex = Regex(regexStringBuilder)
         return inputString.matches(validationRegex)
     }
@@ -149,8 +148,7 @@ object ValidationUtil {
         hasUnderScore:Int = RegexAdditionType.NON.value,
         hasSpecialCharacter:Int = RegexAdditionType.NON.value,
         hasNumbers:Int = RegexAdditionType.NON.value,
-        hasCapitalLetters:Int = RegexAdditionType.NON.value,
-        hasSmallLetters:Int = RegexAdditionType.NON.value
+        hasCapitalLetters:Int = RegexAdditionType.NON.value
     ): String {
         var enableCapitalMandatory = "?!"
         var enableCapitalOptional = ""
@@ -166,22 +164,6 @@ object ValidationUtil {
             RegexAdditionType.NON.value ->{
                 enableCapitalMandatory = "?!"
                 enableCapitalOptional = ""
-            }
-        }
-        var enableSmallMandatory = "?!"
-        var enableSmallOptional = ""
-        when(hasSmallLetters){
-            RegexAdditionType.OPTIONAL.value ->{
-                enableSmallMandatory = ""
-                enableSmallOptional = "*?"
-            }
-            RegexAdditionType.MANDATORY.value ->{
-                enableSmallMandatory = "?="
-                enableSmallOptional = ""
-            }
-            RegexAdditionType.NON.value ->{
-                enableSmallMandatory = "?!"
-                enableSmallOptional = ""
             }
         }
         var enableDotMandatory = "?!"
@@ -248,7 +230,7 @@ object ValidationUtil {
                 enableNumbersOptional = ""
             }
         }
-        return "^(${enableSmallMandatory}.*[a-z]${enableSmallOptional})(${enableCapitalMandatory}.*[A-Z]${enableCapitalOptional})(${enableNumbersMandatory}.*\\d${enableNumbersOptional})" +
+        return "^(?=.*[a-z])(${enableCapitalMandatory}.*[A-Z]${enableCapitalOptional})(${enableNumbersMandatory}.*\\d${enableNumbersOptional})" +
                 "(${enableDotMandatory}.*[.]${enableDotOptional})(${enableUnderScoreMandatory}.*[_]${enableUnderScoreOptional})(${enableSpecialCharMandatory}.*[-+!@#\$%^&*,?]${enableSpecialCharOptional}).{${minLength},${maxLength}}$"
     }
 
@@ -306,7 +288,7 @@ object ValidationUtil {
      */
     fun isValidEgyptianNationalId(nationalId: String): Boolean {
         var nationalIdRegex =
-            Regex("^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\\d{5}$")
+            Regex("^(2|3)[0-9][1-9][0-1][1-9][0-3][1-9](01|02|03|04|11|12|13|14|15|16|17|18|19|21|22|23|24|25|26|27|28|29|31|32|33|34|35|88)\\d\\d\\d\\d\\d$")
         return nationalId.matches(nationalIdRegex)
     }
 
@@ -429,37 +411,9 @@ object ValidationUtil {
      */
     enum class RegexAdditionType(val value: Int) {
         MANDATORY(1), OPTIONAL(2), NON(-1);
-
         companion object {
             fun from(findValue: Int): RegexAdditionType =
                 RegexAdditionType.values().first { it.value == findValue }
         }
     }
-}
-
-
-fun main() {
-//    println(
-//        ValidationUtil2.isValidUserPassword(
-//            "123456789",
-//            8,
-//            20,
-//            hasNumbers = ValidationUtil2.RegexAdditionType.MANDATORY.value
-//        ))
-//    println(ValidationUtil.isValidKsaPhoneNumber(phoneNumber = "0535005429"))
-//    println(ValidationUtil.isValidUserName("Ahd._@8", 5, 7, true, true, true, true, true))
-//    println(ValidationUtil.isValidKsaPhoneNumber("+966544949955"))
-//    println(ValidationUtil.isValidEgPhoneNumber("01520713678"))
-//    println(ValidationUtil.isValidIpAddress("192.168.1.1"))
-//    println(ValidationUtil.isValidEgyptianNationalId("293050232190031"))
-//    println(ValidationUtil.isValidCvvNumber("531"))
-//    println(ValidationUtil.isVisa("4111111111111111"))
-//    println(ValidationUtil.isMaster("5105105105105100"))
-//    println(ValidationUtil.isAmex("371449635398431"))
-//    println(ValidationUtil.getKsaNationalIdType("1635788548"))
-//    println(ValidationUtil.getKsaNationalIdType("2827927043"))
-//    println(ValidationUtil.getKsaNationalIdType("293050232190031"))
-//    println(ValidationUtil.isKsaCitizen("1635788548"))
-//    println(ValidationUtil.isKsaResident("2827927043"))
-//    println(ValidationUtil.isKsaResident("293050232190031"))
-}
+    }
