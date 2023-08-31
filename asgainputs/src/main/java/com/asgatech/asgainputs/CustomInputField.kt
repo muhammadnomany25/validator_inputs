@@ -31,6 +31,7 @@ class CustomInputField : TextInputLayout {
     private var hasNumbers: Int = -1
     private var hasCapitalLetters: Int = -1
 
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         val typedAttributeSet = context.theme.obtainStyledAttributes(
@@ -94,6 +95,7 @@ class CustomInputField : TextInputLayout {
             typedAttributeSet.getInt(R.styleable.CustomInputField_hasNumbers, -1)
         hasCapitalLetters =
             typedAttributeSet.getInt(R.styleable.CustomInputField_hasCapitalLetters, -1)
+
     }
 
     /**
@@ -280,6 +282,17 @@ class CustomInputField : TextInputLayout {
         companion object {
             fun from(findValue: Int): InputTypes =
                 values().first { it.value == findValue }
+        }
+    }
+    /**
+     * @usage: this enum class identifies different types of regex
+     */
+    enum class RegexAdditionType(val value: Int) {
+        MANDATORY(1), OPTIONAL(2), NON(-1);
+
+        companion object {
+            fun from(findValue: Int): RegexAdditionType =
+                RegexAdditionType.values().first { it.value == findValue }
         }
     }
 

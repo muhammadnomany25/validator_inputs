@@ -28,6 +28,8 @@
                 app:hasCapitalLetters="mandatory"
                 app:hasNumbers="mandatory"
                 app:hint="Username " />
+                app:includeNumbers="mandatory"
+                app:hint="Username" />
 
             <com.asgatech.asgainputs.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -38,6 +40,8 @@
                 app:fieldType="password"
                 app:hasCapitalLetters="mandatory"
                 app:hint="Password" />
+                app:includeDot="mandatory"
+                app:hint="Password"/>
 
             <com.asgatech.asgainputs.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

@@ -1,14 +1,15 @@
 package com.asgatech.asgainputs.utils
 
+import java.util.regex.Pattern
 
 import android.util.Patterns
-import java.util.regex.Pattern
 
 /**
  * @Author: Ahmed Saber
  * @Date: 12/9/2021
  * @Date: ahmedasga2593@gmail.com
  */
+
 object ValidationUtil {
     /**@usage:  validate entered username based on passed parameters.
      * @param userName A String containing the username
@@ -121,7 +122,6 @@ object ValidationUtil {
             hasNumbers,
             hasCapitalLetters
         )
-     //   println(regexStringBuilder)
         var validationRegex = Regex(regexStringBuilder)
         return inputString.matches(validationRegex)
     }
@@ -411,7 +411,6 @@ object ValidationUtil {
      */
     enum class RegexAdditionType(val value: Int) {
         MANDATORY(1), OPTIONAL(2), NON(-1);
-
         companion object {
             fun from(findValue: Int): RegexAdditionType =
                 RegexAdditionType.values().first { it.value == findValue }
