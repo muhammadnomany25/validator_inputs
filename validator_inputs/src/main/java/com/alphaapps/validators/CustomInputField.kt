@@ -1,4 +1,4 @@
-package com.asgatech.asgainputs
+package com.alphaapps.validators
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -9,7 +9,8 @@ import android.util.AttributeSet
 import android.util.Log
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.doOnTextChanged
-import com.asgatech.asgainputs.utils.ValidationUtil
+import com.asgatech.asgainputs.R
+import com.alphaapps.validators.utils.ValidationUtil
 import com.google.android.material.textfield.TextInputLayout
 
 /**

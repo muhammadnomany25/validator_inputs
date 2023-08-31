@@ -1,4 +1,4 @@
-package com.asgatech.asgainputs.utils
+package com.alphaapps.validators.utils
 
 import java.util.regex.Pattern
 
@@ -187,7 +187,7 @@ object ValidationUtil {
         var enableDotMandatory = "?!"
         var enableDotOptional=""
         when(hasDot){
-            RegexAdditionType.OPTIONAL .value->{
+            RegexAdditionType.OPTIONAL.value->{
                 enableDotMandatory = ""
                 enableDotOptional = "*?"
             }
@@ -227,7 +227,7 @@ object ValidationUtil {
                 enableSpecialCharMandatory = "?="
                 enableSpecialCharOptional = ""
             }
-            RegexAdditionType.NON .value->{
+            RegexAdditionType.NON.value->{
                 enableSpecialCharMandatory = "?!"
                 enableSpecialCharOptional = ""
             }

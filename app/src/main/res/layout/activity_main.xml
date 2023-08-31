@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.alphaapps.inputsvalidation.MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
                 app:includeNumbers="mandatory"
                 app:hint="Username" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
                 app:includeDot="mandatory"
                 app:hint="Password"/>
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 app:hint="Email" />
 
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                 app:fieldType="egyPhone"
                 app:hint="Egyptian phone" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                 app:fieldType="egyNationalId"
                 app:hint="Egyptian national id" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 app:fieldType="ksaPhone"
                 app:hint="Ksa Phone" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                 app:fieldType="ksaNationalId"
                 app:hint="Ksa National Id" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                 app:fieldType="visaCard"
                 app:hint="visa card number" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 app:fieldType="masterCard"
                 app:hint="master card number" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                 app:fieldType="amexCard"
                 app:hint="amex card number" />
 
-            <com.asgatech.asgainputs.CustomInputField
+            <com.alphaapps.validators.CustomInputField
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
